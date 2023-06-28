@@ -146,7 +146,7 @@ void update(Object* state, char input, int Width, int Height)
 		break;
 	}
 
-	int i = -1;
+	int i{};
 	for (i = 0; i < Width * Height; ++i)
 	{
 		if (state[i] == OBJ_MAN || state[i] == OBJ_MAN_ON_GOAL)
@@ -163,6 +163,8 @@ void update(Object* state, char input, int Width, int Height)
 
 	if (tx < 0 || ty < 0 || tx >= Width || ty >= Height)
 	{
+
+		std::cerr << "Invalid player position" << std::endl;
 		return;
 	}
 
@@ -181,6 +183,7 @@ void update(Object* state, char input, int Width, int Height)
 
 		if (tx2 < 0 || ty2 < 0 || tx2 >= Width || ty2 >= Height)
 		{
+			std::cerr << "Invalid player position" << std::endl;
 			return;
 		}
 
